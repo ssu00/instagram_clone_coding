@@ -15,11 +15,16 @@ const StyledImage = styled.Image`
   margin-bottom: 60px;
 `;
 
-const Begin = () => {
+const Begin = ({ navigation }) => {
   return (
     <Container>
       <StyledImage source={require("./logo.jpg")}></StyledImage>
-      <Button selectedTheme={1} text={"새 계정 만들기"} />
+      <Button
+        selectedTheme={1}
+        text={"새 계정 만들기"}
+        navigation={navigation}
+        nextPage={"Second"}
+      />
       <Button selectedTheme={2} text={"로그인"} />
     </Container>
   );
