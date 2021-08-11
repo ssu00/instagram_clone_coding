@@ -1,8 +1,21 @@
-import React from "react";
-import { Begin, Second, RadioButton,Third,Fourth } from "./components/SignUp";
+import React, { createContext, useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import Nav from "./navigations/stack";
+
+export const UserContext = createContext({
+  user: { name: "", password: "", email: "", phone: "" },
+  setName: () => {},
+  setPassword: () => {},
+  setEmail: () => {},
+  setPhone: () => {},
+});
 
 const App = () => {
-  return <Fourth></Fourth>
+  return (
+    <NavigationContainer>
+      <Nav />
+    </NavigationContainer>
+  );
 };
 
 export default App;
