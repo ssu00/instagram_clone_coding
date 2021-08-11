@@ -1,51 +1,27 @@
 import React from "react";
-import { View } from "react-native";
 import styled from "styled-components/native";
-
-const colors = {
-  black: "#000000",
-  grey: "#010101",
-};
-//colors 수정 필요
-//border-top, bottom 어떻게 하는지?
+import color from "./palette";
 
 const Radio = styled.TouchableOpacity`
   width: 50%;
   height: 50px;
-  color: ${({ selected }) => (selected ? colors.black : colors.grey)};
+  borderBottomWidth: ${({ selected }) => (selected ? "2px" : "1px")};
+  borderBottomColor: ${({ selected }) =>
+    selected ? color.grey_0 : color.grey_1};
 `;
 
-const RadioButton = (props) => {
+const StyledText = styled.Text`
+  width: 50vw;
+  font-size: 20px;
+  text-align: center;
+  color: ${({ selected }) => (selected ? color.grey_0 : color.grey_1)};
+`;
+
+const RadioButton = ({ value, selected,onPress }) => {
   return (
-    <View
-      style={[
-        {
-          height: 24,
-          width: 24,
-          borderRadius: 12,
-          borderWidth: 2,
-          borderColor: "#000",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: 50,
-          marginLeft: 50,
-        },
-        props.style,
-      ]}
-    >
-      {props.selected ? (
-        <View
-          style={{
-            height: 12,
-            width: 12,
-            borderRadius: 6,
-            backgroundColor: "#000",
-            marginTop: 50,
-            marginLeft: 50,
-          }}
-        />
-      ) : null}
-    </View>
+    <Radio selected={selected} onPress={onPress}>
+      <StyledText selected={selected}>{value}</StyledText>
+    </Radio>
   );
 };
 

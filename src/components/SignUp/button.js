@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-
-const color = {
-  white: "#ffffff",
-  blue: "#0195f7",
-};
+import color from "./palette";
 const Container = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
