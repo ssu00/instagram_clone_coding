@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import color from "./palette";
+// import color from "./palette";
 const Container = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
@@ -9,19 +9,22 @@ const Container = styled.TouchableOpacity`
   border: none;
   border-radius: 6px;
   background-color: ${({ selectedTheme }) =>
-    selectedTheme === 1 ? color.blue : color.white};
+    selectedTheme === 1 ? '#0195f7' : '#ffffff'};
 `;
 
 const ButtonText = styled.Text`
   color: ${({ selectedTheme }) =>
-    selectedTheme === 1 ? color.white : color.blue};
+    selectedTheme === 1 ? '#ffffff': '#0195f7'};
   font-weight: 700;
   font-size: 16px;
 `;
 
-const Button = ({ selectedTheme, text }) => {
+const Button = ({ selectedTheme, text, navigation, nextPage }) => {
   return (
-    <Container selectedTheme={selectedTheme}>
+    <Container
+      selectedTheme={selectedTheme}
+      onPress={() => navigation.navigate(`${nextPage}`)}
+    >
       <ButtonText selectedTheme={selectedTheme}>{text}</ButtonText>
     </Container>
   );

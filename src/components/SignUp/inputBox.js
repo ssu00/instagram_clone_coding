@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components/native";
-
+import UserContext from "../../contexts/signupContext";
 const StyledInput = styled.TextInput`
   width: 100%;
   height: 50px;
@@ -14,7 +14,8 @@ const StyledInput = styled.TextInput`
 `;
 
 const InputBox = ({ placeholder }) => {
-  return <StyledInput placeholder={placeholder} />;
+  const { setName } = useContext(UserContext);
+  return <StyledInput placeholder={placeholder} onChangeText={setName} />;
 };
 
 export default InputBox;
