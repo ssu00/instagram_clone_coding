@@ -1,10 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import Button from "./button";
 
 const Container = styled.View`
   flex: 1;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0 10px;
