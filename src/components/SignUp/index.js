@@ -1,7 +1,9 @@
-import Begin from "./begin";
-import Second from "./second";
-import RadioButton from "./RadioButton";
-import Third from "./third";
-import Fourth from "./fourth";
-import Fifth from "./fifth";
-export { Begin, Second, RadioButton, Third, Fourth, Fifth };
+import Begin from "./steps/begin";
+import Second from "./steps/second";
+import Third from "./steps/third";
+import Fourth from "./steps/fourth";
+import Fifth from "./steps/fifth";
+import Sixth from "./steps/sixth";
+import Seventh from "./steps/seventh";
+import Final from "./steps/final";
+export { Begin, Second, Third, Fourth, Fifth,Sixth,Seventh,Final };

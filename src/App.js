@@ -1,20 +1,21 @@
-import React, { createContext, useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import Nav from "./navigations/stack";
-
-export const UserContext = createContext({
-  user: { name: "", password: "", email: "", phone: "" },
-  setName: () => {},
-  setPassword: () => {},
-  setEmail: () => {},
-  setPhone: () => {},
-});
+import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleWare from 'redux-saga';
+import rootReducer from './redux/reducers';
+import Registration from "./components/SignUp/Registration";
+const sagaMiddleware = createSagaMiddleWare();
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(sagaMiddleware)),
+);
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Nav />
-    </NavigationContainer>
+    <Provider store={store}>
+      <Registration/>
+    </Provider>
   );
 };
 
