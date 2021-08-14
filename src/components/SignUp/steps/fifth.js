@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ChangeField, Initialize } from "../../../redux/reducers/update";
 import DateTimePicker from "@react-native-community/datetimepicker"; 
 import styled from "styled-components/native";
 import { Text } from "react-native";

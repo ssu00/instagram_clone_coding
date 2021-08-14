@@ -20,7 +20,7 @@ const ButtonText = styled.Text`
   font-size: 16px;
 `;
 
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 // const email={
 //   "host": "smtp.mailtrap.io",
 //   "port": 587,
