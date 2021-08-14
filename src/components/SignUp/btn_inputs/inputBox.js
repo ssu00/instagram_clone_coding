@@ -12,8 +12,8 @@ const StyledInput = styled.TextInput`
   padding-left: 15px;
 `;
 
-const InputBox = ({ placeholder,handleChange,category,encrypted }) => {
-  return <StyledInput placeholder={placeholder} onChange={handleChange(`${category}`)} secureTextEntry={encrypted}/>;
+const InputBox = ({ placeholder,handleChange,category,encrypted,value }) => {
+  return <StyledInput placeholder={placeholder} onChangeText={handleChange(`${category}`)} secureTextEntry={encrypted} value={value}/>;
 };
 
 export default InputBox;
