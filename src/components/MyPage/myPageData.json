@@ -1,0 +1,26 @@
+{
+    "user":{
+        "name": "김지수",
+        "username":"ssu00",
+        "posts":[
+            {
+                "img":"https://firebasestorage.googleapis.com/v0/b/instagramclone-d85d7.appspot.com/o",
+                "likes":10,
+                "text":"test1",
+                "date":"2019.06.09"
+            },
+            {
+                "img":"https://firebasestorage.googleapis.com/v0/b/instagramclone-d85d7.appspot.com/o",
+                "likes":20,
+                "text":"test2",
+                "date":"2020.12.21"
+            },
+            {
+                "img":"https://firebasestorage.googleapis.com/v0/b/instagramclone-d85d7.appspot.com/o",
+                "likes":40,
+                "text":"test3",
+                "date":"2021.02.15"
+            }
+        ]
+    }
+}
