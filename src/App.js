@@ -5,6 +5,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleWare from 'redux-saga';
 import rootReducer from './redux/reducers';
 import Registration from "./components/SignUp/Registration";
+import MyPage from './components/MyPage/MyPage';
+
 const sagaMiddleware = createSagaMiddleWare();
 const store = createStore(
     rootReducer,
@@ -14,7 +16,8 @@ const store = createStore(
 const App = () => {
   return (
     <Provider store={store}>
-      <Registration/>
+      <MyPage/>
+      {/* <Registration/> */}
     </Provider>
   );
 };

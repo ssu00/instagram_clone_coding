@@ -9,7 +9,7 @@ import data from "./myPageData.json"
 
 const Container=styled.View`
     flex:1;
-    padding:10px 10px 50px 10px;
+    padding:10px 20px 50px 20px;
 `;
 
 const MyPage=()=>{

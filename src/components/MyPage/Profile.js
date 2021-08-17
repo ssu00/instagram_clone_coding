@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import styled from "styled-components/native";
 const ProfileContainer=styled.View`
     width:100%;
@@ -25,7 +24,7 @@ const ProfileText=styled.Text`
 `;
 
 const StyledView=styled.View`
-    text-align:center;
+    align-items:center;
 `;
 
 const Profile=()=>{
