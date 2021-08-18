@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect }from 'react';
 import styled from 'styled-components/native';
 import { Text, Button } from 'react-native';
 import { Image, Input } from '../components';
-import { images } from '../utils/images';
+import { images } from '../../../utils/images';
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { validateEmail, removeWhitespace } from '../utils/common';
+import { validateEmail, removeWhitespace } from '../../../utils/common';
 
 const ErrorText = styled.Text`
   align-items: flex-start;

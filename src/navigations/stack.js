@@ -5,7 +5,11 @@ const Stack = createStackNavigator();
 const Nav = ({ form, handleChange }) => {
   return (
     <Stack.Navigator screenOptions={{ cardStyle: { backgroundColor: "#ffffff" } }}>
-      <Stack.Screen name="First" component={Begin} options={{ headerShown: false }} />
+      <Stack.Screen name="Login" options={{ headerShown: false }}>
+        {({ navigation }) => (
+        <Second navigation={navigation} form={form} handleChange={handleChange} />
+        )}
+      </Stack.Screen>
       <Stack.Screen name="Second" options={{ headerShown: false }}>
         {({ navigation }) => (
         <Second navigation={navigation} form={form} handleChange={handleChange} />
