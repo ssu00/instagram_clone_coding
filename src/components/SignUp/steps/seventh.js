@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,createContext,useContext } from "react";
 import styled from "styled-components/native";
 import color from "../palette";
 import Button from "../btn_inputs/button";
@@ -55,6 +55,11 @@ const SubmitButton = ({ selectedTheme, text, navigation, nextPage,onPress }) => 
 
 const Seventh=({ navigation,form })=>{
   const [success,setSuccess]=useState(false);
+  const UserContext = createContext({
+    user: { email: null, uid: null },
+    dispatch: () => {},
+  });
+  const { dispatch } = useContext(UserContext);
   const _handleSignupButtonPress = async () => {
     let email=form.email;
     let password=form.password;
@@ -70,13 +75,13 @@ const Seventh=({ navigation,form })=>{
     };
 
     if(success===true){
-      navigation.push('Final');
+      navigation.push('Example');
     }
 
     return <Container>
         <StyledText>{`${form.name}님으로\n가입하시겠어요?`}</StyledText>
         <Definition>{"나중에 언제든지 사용자 이름을 변경할 수 있습니다."}</Definition>
-        <SubmitButton selectedTheme={1} text={"가입하기"} navigation={navigation} nextPage={"Final"} onPress={()=> _handleSignupButtonPress()}></SubmitButton>
+        <SubmitButton selectedTheme={1} text={"가입하기"} navigation={navigation} nextPage={"Example"} onPress={()=> _handleSignupButtonPress()}></SubmitButton>
         <Button selectedTheme={2} text={"사용자 이름 변경"} navigation={navigation} nextPage={"Fourth"} disabled={false}></Button>
     </Container>
 }
