@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import config from "../../firebase.json";
+import config from '../../../firebase.json';
 const app = firebase.initializeApp(config);
 const Auth=app.auth();
 export const signup = async ({ email,password }) => {
