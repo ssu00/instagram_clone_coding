@@ -7,6 +7,18 @@ import { ThemeProvider } from 'styled-components/native';
 import { theme } from './theme';
 import Navigation from './navigations';
 import { images } from './utils/images';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleWare from 'redux-saga';
+import rootReducer from './redux/reducers';
+import Registration from "./components/SignUp/Registration";
+
+const sagaMiddleware = createSagaMiddleWare();
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(sagaMiddleware)),
+);
 
 const cacheImages = images => {
     return images.map(image => {
@@ -33,7 +45,15 @@ const cacheImages = images => {
   
       await Promise.all([...imageAssets, ...fontAssets]);
     };
-  
+    
+    /*const App = () => {
+      return (
+        <Provider store={store}>
+          <Registration/>
+        </Provider>
+      );
+    };*/
+
     return isReady ? (
       <ThemeProvider theme={theme}>
           <StatusBar barStyle="dark-content" />
@@ -46,6 +66,4 @@ const cacheImages = images => {
              onError={console.warn}
         />
     );
-};
-
-export default App;
+  };
