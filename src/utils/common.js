@@ -10,4 +10,4 @@ export const removeWhitespace = text => {
   
 export const validatePhone=phone=>{
     return !isNaN(phone);
-}
+};
