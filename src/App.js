@@ -14,6 +14,9 @@ const store = createStore(
 const App = () => {
   return (
     <Provider store={store}>
+      {/* <AppNav/> */}
+      {/* <AppNavigator/> */}
+      {/* <MyPage/> */}
       <Registration/>
     </Provider>
   );

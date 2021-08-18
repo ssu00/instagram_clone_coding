@@ -26,7 +26,9 @@ const Begin = ({ navigation }) => {
         nextPage={"Second"}
         disabled={false}
       />
-      <Button selectedTheme={2} text={"로그인"} />
+      <Button selectedTheme={2} text={"로그인"}        navigation={navigation}
+        nextPage={"MyPage"}
+/>
     </Container>
   );
 };

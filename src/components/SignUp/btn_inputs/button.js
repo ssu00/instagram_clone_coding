@@ -55,9 +55,6 @@ const Button = ({ selectedTheme, text, navigation, nextPage,disabled }) => {
       onPress={
         () => {
           navigation.navigate(`${nextPage}`);
-          if(nextPage=="Third")
-            console.log("여기!");
-            // send(content);
         }}
       disabled={disabled}
     >
