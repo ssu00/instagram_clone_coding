@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-// import color from "./palette";
+import color from "../palette";
 const Container = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
@@ -9,13 +9,13 @@ const Container = styled.TouchableOpacity`
   border: none;
   border-radius: 6px;
   background-color: ${({ selectedTheme }) =>
-    selectedTheme === 1 ? '#0195f7' : '#ffffff'};
+    selectedTheme === 1 ? color.blue : color.white};
     opacity:${({disabled})=>disabled?0.5:1};
 `;
 
 const ButtonText = styled.Text`
   color: ${({ selectedTheme }) =>
-    selectedTheme === 1 ? '#ffffff': '#0195f7'};
+    selectedTheme === 1 ? color.white: color.blue};
   font-weight: 700;
   font-size: 16px;
 `;
@@ -52,13 +52,7 @@ const Button = ({ selectedTheme, text, navigation, nextPage,disabled }) => {
   return (
     <Container
       selectedTheme={selectedTheme}
-      onPress={
-        () => {
-          navigation.navigate(`${nextPage}`);
-          if(nextPage=="Third")
-            console.log("여기!");
-            // send(content);
-        }}
+      onPress={() => {navigation.navigate(`${nextPage}`);}}
       disabled={disabled}
     >
       <ButtonText selectedTheme={selectedTheme}>{text}</ButtonText>

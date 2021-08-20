@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import Button from "../btn_inputs/button";
+import Button from "../../components/SignUp/btn_inputs/button";
 
 const Container = styled.View`
   flex: 1;
@@ -15,26 +15,20 @@ const StyledImage = styled.Image`
   margin-bottom: 60px;
 `;
 
-const Begin = ({ navigation }) => {
+const InitScreen = ({ navigation }) => {
   return (
     <Container>
-      <StyledImage source={require("../../../../assets/images/logo.jpg")}></StyledImage>
+      <StyledImage source={require("../../../assets/images/logo.jpg")}/>
       <Button
         selectedTheme={1}
         text={"새 계정 만들기"}
         navigation={navigation}
-        nextPage={"Second"}
+        nextPage={"Register"}
         disabled={false}
       />
-      <Button
-        selectedTheme={2}
-        text={"로그인"}
-        navigation={navigation}
-        nextPage={"Login"}
-        dtsabled={false}
-      />
+      <Button selectedTheme={2} text={"로그인"} navigation={navigation} nextPage={"SignIn"}/>
     </Container>
   );
 };
 
-export default Begin;
+export default InitScreen;

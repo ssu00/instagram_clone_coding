@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Login, Signup } from '../screens';
-
+import { Login, Step01 } from '../screens';
 const Stack = createStackNavigator();
-
-const AuthStack = () => {
+const LoginStack = () => {
   const theme = useContext(ThemeContext);
   return (
     <Stack.Navigator
@@ -23,11 +21,11 @@ const AuthStack = () => {
       />
       <Stack.Screen
         name="Signup"
-        component={Signup}
+        component={Step01}
         options={{ headerBackTitleVisible: false}}
       />
     </Stack.Navigator>
   );
 };
 
-export default AuthStack;
+export default LoginStack;

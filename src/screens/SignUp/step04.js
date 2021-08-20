@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker"; 
 import styled from "styled-components/native";
 import { Text } from "react-native";
-import Button from "../btn_inputs/button";
+import Button from "../../components/SignUp/btn_inputs/button";
+import color from "../../components/SignUp/palette";
 const Container = styled.View`
   flex: 1;
   align-items: center;
@@ -25,10 +26,10 @@ const StyledBox=styled.View`
   flex-direction:row;
   width: 90%;
   height: 50px;
-  color: #999999;
+  color: ${color.grey_1};
   font-weight: 700;
-  background-color: #fafafa;
-  border: 0.5px solid #dbdbdb;
+  background-color: ${color.grey_2};
+  border: 0.5px solid ${color.grey_3};
   border-radius: 6px;
   margin-bottom: 100px;
   padding: 15px 15px;
@@ -40,7 +41,7 @@ const Birthday=styled.Text`
 `;
 
 const Age=styled.Text`
-  color:#999999;
+  color: ${color.grey_1};
   font-size:14px;
 `;
 
@@ -51,16 +52,16 @@ const BirthDayButton = styled.TouchableOpacity`
   height: 50px;
   border: none;
   border-radius: 6px;
-  background-color: #ffffff;
+  background-color: ${color.white};
 `;
 
 const BirthDayText = styled.Text`
-  color: #0195f7;
+  color: ${color.blue};
   font-weight: 900;
   margin-top: 20px;
 `;
 
-const Fifth = ({navigation,form}) => {
+const Step04 = ({navigation,form}) => {
     const now=new Date();
     const [date, setDate] = useState(new Date());
     const [birthday,setBirthday]=useState('');
@@ -87,26 +88,35 @@ const Fifth = ({navigation,form}) => {
 
     return (
     <Container>
-      <StyledImage source={require("../../../../assets/images/birthday.png")}/>
+      <StyledImage source={require("../../../assets/images/birthday.png")}/>
       <StyledText>{"생일 추가"}</StyledText>
       <Text style={{marginBottom:20}}>{"공개 프로필에 포함되지 않습니다."}</Text>
-
       <StyledBox>
-        {date2?<Birthday>{`${year}년 ${month}월 ${date2}일`}</Birthday>:<></>}
+        {date2?
+          <Birthday>{`${year}년 ${month}월 ${date2}일`}</Birthday>
+          : <></>}
         {
-          noAge?<></>:
-          <Age>{`${month<now.getMonth()+1||(month==now.getMonth()+1&&date2<=now.getDate())?
-          now.getFullYear()-year:now.getFullYear()-year-1}세`}</Age>
+          noAge?
+            <></>
+            : <Age>
+                {`${month<now.getMonth()+1||(month==now.getMonth()+1&&date2<=now.getDate())?
+                    now.getFullYear()-year
+                    :now.getFullYear()-year-1
+                   }세`
+                }
+              </Age>
         }
       </StyledBox>
 
-      <Button selectedTheme={1} text={"다음"} navigation={navigation} nextPage={"Sixth"} disabled={disabled}/>
+      <Button selectedTheme={1} text={"다음"} navigation={navigation} nextPage={"Step05"} disabled={disabled}/>
 
       <BirthDayButton onPress={()=>setModal(!modal)}>
         <BirthDayText>{"생일 입력하기"}</BirthDayText>
       </BirthDayButton>
-      {modal?<DateTimePicker value={date} mode="date" display="spinner" locale="ko" onChange={onChange} maximumDate={now}/>:<></>}
+      {modal?
+        <DateTimePicker value={date} mode="date" display="spinner" locale="ko" onChange={onChange} maximumDate={now}/>
+        :<></>}
     </Container>
   );
 };
-export default Fifth;
+export default Step04;

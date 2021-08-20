@@ -22,14 +22,16 @@ const CheckPress=styled.TouchableOpacity`
 `;
 
 const CheckBox=({text,able, onPress})=>{
-    return <Container>
+    return (
+    <Container>
         <StyledText>{text}</StyledText>
         <CheckPress onPress={onPress}>
         {able?
-            <StyledImage source={require("../../../../assets/images/check.png")}></StyledImage>:
-            <StyledImage source={require("../../../../assets/images/circle.png")}></StyledImage>}
+            <StyledImage source={require("../../../../assets/images/check.png")}/>:
+            <StyledImage source={require("../../../../assets/images/circle.png")}/>}
         </CheckPress>
-    </Container>;
+    </Container>
+    );
 }
 
 export default CheckBox;

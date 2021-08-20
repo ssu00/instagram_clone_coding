@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ChangeField, Initialize } from "../../redux/reducers/update";
-import SignUp from "./SignUpTotal";
-const Registration = () => {
+import SignUpStack from "../../navigations/SignUp";
+const Registration = ({navigation}) => {
   const dispatch = useDispatch();
   const { form } = useSelector(({ update }) => ({
     form: update.update,
@@ -25,7 +25,7 @@ const Registration = () => {
     dispatch(Initialize("update"));
   }, [dispatch]);
 
-  return <SignUp type="update" form={form} handleChange={onChange}/>;
+  return <SignUpStack type="update" navigation={navigation} form={form} handleChange={onChange} />;
 };
 
 export default Registration;

@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { CheckBox } from "react-native";
-import color from "../palette";
-import Button from "../btn_inputs/button";
 const Container = styled.View`
   flex: 1;
   align-items: center;
@@ -14,10 +11,10 @@ const StyledText=styled.Text`
   margin-bottom:20px;
 `;
 
-const Final=({ navigation,handleChange,form })=>{
+const Step07=({ navigation,handleChange,form })=>{
     return <Container>
         <StyledText>{"메인 페이지"}</StyledText>
     </Container>
 }
 
-export default Final;
+export default Step07;

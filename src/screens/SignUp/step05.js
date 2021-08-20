@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
-import color from "../palette";
-import Button from "../btn_inputs/button";
-import CheckBox from "../btn_inputs/checkbox";
+import color from "../../components/SignUp/palette";
+import Button from "../../components/SignUp/btn_inputs/button";
+import CheckBox from "../../components/SignUp/btn_inputs/checkbox";
 const Container = styled.View`
   flex: 1;
   align-items: center;
@@ -21,7 +21,7 @@ const Definition=styled.Text`
   text-align:center;
 `;
 
-const Sixth=({ navigation })=>{
+const Step05=({ navigation })=>{
     const [disabled, setDisabled]=useState(true);
     const [able1, setAble1]=useState(false);
     const [able2, setAble2]=useState(false);
@@ -59,8 +59,8 @@ const Sixth=({ navigation })=>{
         <CheckBox text={"서비스 약관(필수)"} able={able1} onPress={()=>setAble1(!able1)}/>
         <CheckBox text={"데이터 정책(필수)"} able={able2} onPress={()=>setAble2(!able2)}/>
         <CheckBox text={"위치 기반 기능(필수)"} able={able3} onPress={()=>setAble3(!able3)}/>
-        <Button selectedTheme={1} text={"다음"} navigation={navigation} nextPage={"Seventh"} disabled={disabled}></Button>
+        <Button selectedTheme={1} text={"다음"} navigation={navigation} nextPage={"Step06"} disabled={disabled}></Button>
     </Container>
 }
 
-export default Sixth;
+export default Step05;

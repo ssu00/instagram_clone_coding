@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect }from 'react';
 import styled from 'styled-components/native';
-import { Text, Button } from 'react-native';
-import { Image, Input } from '../components';
-import { images } from '../../../utils/images';
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { Button, Text } from 'react-native';
+import { Image, Input } from '../../components/Login';
+import { images } from '../../utils/images';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { validateEmail, removeWhitespace } from '../../../utils/common';
+import { validateEmail, removeWhitespace } from '../../utils/common';
 
 const ErrorText = styled.Text`
   align-items: flex-start;
@@ -22,6 +22,21 @@ const Container = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.background};
   padding: 20px;
+`;
+
+const StyledButton=styled.TouchableOpacity`
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:45px;
+    background-color: ${({selected})=>selected==1?"#0195f7":"#ffffff"};
+    border-radius:14px;
+`;
+
+const StyledText=styled.Text`
+    font-size:16px;
+    font-weight:900;
+    color: ${({selected})=>selected==1?"#ffffff":"#0195f7"};
 `;
 
 const Login = ({ navigation }) => {
@@ -56,7 +71,7 @@ const Login = ({ navigation }) => {
             <Container>
                 <Image url = {images.logo} />
                 <Input
-                    //label="Email"
+                    label=""
                     value={email}
                     onChangeText={_handleEamilChange}
                     onSubmitEditing={()=> passwordRef.current.focus()}
@@ -65,7 +80,7 @@ const Login = ({ navigation }) => {
                 />
                 <Input
                     ref={passwordRef}
-                    //label="Password"
+                    label=""
                     value={password}
                     onChangeText={_handlePasswordChange}
                     onSubmitEditing={_handleLoginButtonPress}
@@ -74,16 +89,22 @@ const Login = ({ navigation }) => {
                     isPassword
                 />
                 <ErrorText>{errorMessage}</ErrorText>
-                <Button
+                <StyledButton selected={1} onPress={_handleLoginButtonPress} disabled={disabled}>
+                    <StyledText selected={1}>Login</StyledText>
+                </StyledButton>
+                <StyledButton selected={2} onPress={()=>navigation.navigate("Register")}>
+                    <StyledText selected={2}>Sign Up</StyledText>
+                </StyledButton>
+                {/* <Button
                     title="Login"
                     onPress={_handleLoginButtonPress}
                     disabled={disabled}
                 />
                 <Button
                     title="sign up"
-                    onPress={() => navigation.navigate('Signup')}
+                    onPress={() => navigation.navigate("Register")}
                     isFilled={false}
-                />
+                /> */}
             </Container>
         </KeyboardAwareScrollView>
     );

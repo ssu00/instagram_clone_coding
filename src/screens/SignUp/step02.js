@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components/native";
-import InputBox from "../btn_inputs/inputBox";
-import Button from "../btn_inputs/button";
-// import color from "./palette";
+import InputBox from "../../components/SignUp/btn_inputs/inputBox";
+import Button from "../../components/SignUp/btn_inputs/button";
+import color from "../../components/SignUp/palette";
 
 const Container = styled.View`
   flex: 1;
@@ -32,10 +32,10 @@ const Blue = styled.TouchableOpacity`
 const StyledBlue = styled.Text`
   font-weight: 900;
   font-size: 10px;
-  color: #0195f7;
+  color: ${color.red};
   font-size: 14px;
 `;
-const Third = ({ navigation,handleChange,form }) => {
+const Step02 = ({ navigation,handleChange,form }) => {
   return (
     <Container>
       <StyledText>인증코드 입력</StyledText>
@@ -48,10 +48,10 @@ const Third = ({ navigation,handleChange,form }) => {
         selectedTheme={1}
         text={"다음"}
         navigation={navigation}
-        nextPage={"Fourth"}
+        nextPage={"Step03"}
         disabled={false}/>
     </Container>
   );
 };
 
-export default Third;
+export default Step02;

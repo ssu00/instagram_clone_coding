@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
-import color from "../palette";
-import Button from "../btn_inputs/button";
+import color from "../../components/SignUp/palette";
+import Button from "../../components/SignUp/btn_inputs/button";
 import { Alert } from "react-native";
-import { signup } from "../../../utils/firebase";
+import { signup } from "../../utils/firebase";
 const Container = styled.View`
   flex: 1;
   justify-content:center;
@@ -32,12 +32,12 @@ const ButtonContainer = styled.TouchableOpacity`
   border: none;
   border-radius: 6px;
   background-color: ${({ selectedTheme }) =>
-    selectedTheme === 1 ? '#0195f7' : '#ffffff'};
+    selectedTheme === 1 ? color.blue : color.white};
 `;
 
 const ButtonText = styled.Text`
   color: ${({ selectedTheme }) =>
-    selectedTheme === 1 ? '#ffffff': '#0195f7'};
+    selectedTheme === 1 ? color.white: color.blue};
   font-weight: 700;
   font-size: 16px;
 `;
@@ -53,7 +53,7 @@ const SubmitButton = ({ selectedTheme, text, navigation, nextPage,onPress }) => 
   );
 };
 
-const Seventh=({ navigation,form })=>{
+const Step06=({ navigation,form })=>{
   const [success,setSuccess]=useState(false);
   const _handleSignupButtonPress = async () => {
     let email=form.email;
@@ -76,9 +76,21 @@ const Seventh=({ navigation,form })=>{
     return <Container>
         <StyledText>{`${form.name}님으로\n가입하시겠어요?`}</StyledText>
         <Definition>{"나중에 언제든지 사용자 이름을 변경할 수 있습니다."}</Definition>
-        <SubmitButton selectedTheme={1} text={"가입하기"} navigation={navigation} nextPage={"Final"} onPress={()=> _handleSignupButtonPress()}></SubmitButton>
-        <Button selectedTheme={2} text={"사용자 이름 변경"} navigation={navigation} nextPage={"Fourth"} disabled={false}></Button>
+        <SubmitButton
+          selectedTheme={1}
+          text={"가입하기"}
+          navigation={navigation}
+          nextPage={"Step07"}
+          onPress={()=> _handleSignupButtonPress()}
+        />
+        <Button
+          selectedTheme={2}
+          text={"사용자 이름 변경"}
+          navigation={navigation}
+          nextPage={"Step03"}
+          disabled={false}
+        />
     </Container>
 }
 
-export default Seventh;
+export default Step06;

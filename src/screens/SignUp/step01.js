@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/native";
-import InputBox from "../btn_inputs/inputBox";
-import Button from "../btn_inputs/button";
-import RadioButton from "../btn_inputs/RadioButton";
-import { validatePhone,validateEmail,removeWhitespace } from "../../../utils/common";
+import InputBox from "../../components/SignUp/btn_inputs/inputBox";
+import Button from "../../components/SignUp/btn_inputs/button";
+import RadioButton from "../../components/SignUp/btn_inputs/RadioButton";
+import { validatePhone,validateEmail } from "../../utils/common";
+import { TouchableOpacity } from "react-native";
+import color from "../../components/SignUp/palette";
 const Container = styled.View`
   flex-direction: column;
   align-items: center;
@@ -24,33 +26,33 @@ const StyledImage = styled.Image`
 
 const StyledText = styled.Text`
   font-size: 12px;
-  color: #999999;
+  color: ${color.grey_1};
   text-align: center;
   margin-bottom: 15px;
 `;
 
 const Footer = styled.Text`
-  background-color: #ffffff;
+  background-color: ${color.white};
   width: 100%;
   font-size: 12px;
-  color: #999999;
+  color: ${color.grey_1};
   text-align: center;
 `;
 
 const Blue = styled.Text`
   font-size: 13px;
-  color: #0195f7;
+  color: ${color.blue};
   font-weight: 700;
 `;
 
 const Error=styled.Text`
   font-size:13px;
-  color:#f44336;
+  color: ${color.red};
   text-align:center;
   margin-bottom:15px;
 `;
 
-const Second = ({ navigation,handleChange,form }) => {
+const Step01 = ({ navigation,handleChange,form }) => {
   const [select, setSelect] = useState(true);
   const [disabled, setDisabled]=useState(true);
   const [emailError,setEmailError]=useState("");
@@ -77,35 +79,40 @@ const Second = ({ navigation,handleChange,form }) => {
 
   return (
     <Container>
-      <StyledImage source={require("../../../../assets/images/user.jpg")}></StyledImage>
+      <StyledImage source={require("../../../assets/images/user.jpg")}/>
        <RadioContainer>
-        <RadioButton text="전화번호" selected={select} onPress={()=> setSelect(true)}>
-          전화번호
-        </RadioButton>
-        <RadioButton text="이메일" selected={!select} onPress={()=> setSelect(false)}>
-          이메일
-        </RadioButton>
+        <RadioButton text="전화번호" selected={select} onPress={()=> setSelect(true)}/>
+        <RadioButton text="이메일" selected={!select} onPress={()=> setSelect(false)}/>
       </RadioContainer>
       {select ? (
         <>
           <InputBox placeholder={"휴대폰"} handleChange={handleChange} category={"phone"} encrypted={false} value={form.phone}/>
-          {phoneError?<Error>{phoneError}</Error>:<></>}
+          {phoneError?
+            <Error>{phoneError}</Error>
+            : <></>
+          }
           <StyledText>
             {`Instagram의 업데이트 내용을 SMS로 수신할 수 있으며, \n언제든지 수신을 취소할 수 있습니다.`}
           </StyledText>
         </>
       ) : (
         <>
-        <InputBox placeholder={"이메일"} handleChange={handleChange} category={"email"} encrypted={false} value={form.email}/>
-        {emailError?<Error>{emailError}</Error>:<></>}
+          <InputBox placeholder={"이메일"} handleChange={handleChange} category={"email"} encrypted={false} value={form.email}/>
+          {emailError?
+            <Error>{emailError}</Error>
+            : <></>
+          }
         </>
         )}
-      <Button selectedTheme={1} text={"다음"} navigation={navigation} nextPage={"Third"} disabled={disabled}/>
+      <Button selectedTheme={1} text={"다음"} navigation={navigation} nextPage={"Step02"} disabled={disabled}/>
       <Footer>
-        {"이미 계정이 있으신가요?"} <Blue>{"로그인하기"}</Blue>
+        {"이미 계정이 있으신가요?"}
+        <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+          <Blue>{"로그인하기"}</Blue>
+        </TouchableOpacity>
       </Footer>
     </Container>
   );
 };
 
-export default Second;
+export default Step01;
